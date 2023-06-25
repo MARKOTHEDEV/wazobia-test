@@ -53,6 +53,11 @@ export const StyledButton = styled('button',{
                 backgroundColor:'white',
                 color:'$black150',
                 'border':'1px solid $black150',
+                '&:hover':{
+                    backgroundColor:'white',
+                    color:'$black150',
+                    'border':'1px solid $black150',
+                }
             },
             'danger':{
                 backgroundColor:'transparent',

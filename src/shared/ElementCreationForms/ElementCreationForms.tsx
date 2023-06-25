@@ -164,3 +164,69 @@ export const CreationOfFaceBookAndTicktok = ({setModal,onSave}:Prop)=>{
     </Box>
   )
 }
+
+export const FileUpload = ({setModal,onSave}:Prop)=>{
+  const [image,setImage]= useState<any>()
+
+  const handleImport =(e: React.ChangeEvent<HTMLInputElement>)=>{
+    e.preventDefault()
+    const input = e.target as HTMLInputElement;
+    if (!input.files?.length) {
+      return;
+    }
+    setImage(URL.createObjectURL(input.files[0]))
+  }
+  return (
+    <Box css={{
+      'h3':{
+        'color':'$black150','fontWeight':'500',
+        'marginBottom':'.7rem'
+      }
+    }}>
+        <h3>Upload Image</h3>
+        <Box 
+        css={{'label':{
+          color:'$black50',
+          fontSize:'.7rem',
+          fontWeight:400,
+        }}}
+        >
+          <label htmlFor="">FILE UPLOAD</label>
+          <Box css={{'border':'1px dashed  #0A7227','minHeight':'100px','backgroundColor':'$gray50','borderRadius':'5px','display':'flex','alignItems':'center','justifyContent':'center',
+          'marginTop':'.5rem',
+          
+        }} >
+              <label htmlFor="importdevice" style={{'cursor':'pointer'}}>
+            <Button color='white' css={{'border':'1px solid #6CAA7D','pointerEvents':'none'}}>
+                Import Image from Device
+            </Button>
+              </label>
+
+            <input type="file"
+            id={'importdevice'}
+            style={{'display':'none'}}
+            onChange={handleImport}/>
+          </Box>
+        </Box>
+
+        <Box css={{'display':'flex','gap':'0 10px','padding':'.6rem 0'}}>
+                <Button
+                onClick={e=>{
+                  e.preventDefault()
+                  onSave(`<img src="${image}" alt="hive-deck-img" />`)
+                  setModal(false)
+
+                }}
+                >Embed</Button>
+                <Button color='white'
+                onClick={e=>{
+                    e.preventDefault()
+                    if(setModal){
+                        setModal(false)
+                    }
+                }}
+                >Cancel</Button>
+            </Box>
+    </Box>
+  )
+}

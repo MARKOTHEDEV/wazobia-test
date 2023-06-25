@@ -2,8 +2,8 @@
 import { Box } from './shared/generalboxes';
 import { globalStyles } from '../stitches.config';
 import CustomEditor from './shared/CustomEditor/CustomEditor';
+import { useState } from 'react';
 function App() {
-
 globalStyles()//for stiches.dev config
 
   return (

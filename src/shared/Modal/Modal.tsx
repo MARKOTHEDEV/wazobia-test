@@ -76,7 +76,7 @@ import Button from '../Button/Button';
                     'fontSize':'.9rem'
                 },
                 '@bp2':{
-                'minWidth':'500px',
+                'minWidth':'700px',
                 }
             }}>
                 <h3>{heading}</h3>

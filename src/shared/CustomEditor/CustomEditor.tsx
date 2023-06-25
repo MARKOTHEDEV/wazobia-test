@@ -5,7 +5,7 @@ import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import SelectWithLabel from "../SelectWithLabel/SelectWithLabel";
-import {CreationOfFaceBookAndTicktok, CreationOfVimeoAndYoutube} from "../ElementCreationForms/ElementCreationForms";
+import {CreationOfFaceBookAndTicktok, CreationOfVimeoAndYoutube, FileUpload} from "../ElementCreationForms/ElementCreationForms";
 
 
 
@@ -14,6 +14,10 @@ const CustomEditor = ()=>{
     const editorRef = useRef(null);
     const  [value,setValue]=useState<string>()
     const [selectedVariant,setSelectedVariant]= useState<'youtube'|'pics'|'social'>()
+
+    const handleOnSave =(new_value:string)=>{
+      setValue(value+new_value)
+    }
     return (  
         <Box>
             <CustomModal
@@ -25,20 +29,24 @@ const CustomEditor = ()=>{
                 {
                   selectedVariant==='youtube'?
                   <CreationOfVimeoAndYoutube 
-                  onSave={new_value=>{
-                      setValue(value+new_value)
-                  }}
+                  onSave={new_value=>handleOnSave(new_value)}
                   setModal={setModalIsOpen}
                   />:''
                 }
                 {
                   selectedVariant ==='social'?
                   <CreationOfFaceBookAndTicktok
-                  onSave={new_value=>{
-                      setValue(value+new_value)
+                  onSave={new_value=>handleOnSave(new_value)}
 
-                  }}
                   setModal={setModalIsOpen}
+                  />:''
+                }
+                {
+                  selectedVariant ==='pics'?
+                  <FileUpload
+                  setModal={setModalIsOpen}
+                  onSave={new_value=>handleOnSave(new_value)}
+
                   />:''
                 }
 
@@ -55,7 +63,9 @@ const CustomEditor = ()=>{
           console.log(newValue)
           setValue(newValue)
         }}
-          apiKey='your-api-key'
+          apiKey={
+            process.env.NODE_ENV == 'production'?
+            process.env.REACT_TINY_API:''}
         
           initialValue="<h2>This is the title</h2>"
           init={{
@@ -78,7 +88,7 @@ const CustomEditor = ()=>{
           <ExtraEditorOption 
           onSelect={value=>{
             console.log('display '+value)
-            if(value==='youtube'||value=='social'){
+            if(value==='youtube'||value=='social' || value =='pics'){
               setSelectedVariant(value)
               setModalIsOpen(true)
             }
