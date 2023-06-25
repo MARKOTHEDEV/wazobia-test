@@ -84,10 +84,7 @@ import Button from '../Button/Button';
             {
             element
             }
-            <Box css={{'display':'flex','gap':'0 10px','padding':'.6rem 0'}}>
-                <Button>Embed</Button>
-                <Button color='white'>Cancel</Button>
-            </Box>
+
             </Box>
         </Modal>:''
           }

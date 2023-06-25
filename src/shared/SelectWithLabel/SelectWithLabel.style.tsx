@@ -19,10 +19,12 @@ export const SelectWithLabelContainer = styled('div',{
     }
     },
    'svg,img':{
+    'color':'#4D5650',
     'position':'absolute',
-    'top':'40%',
-    'right':'10px',
-    'pointerEvents':'none'
+    'top':'25%',
+    'right':'5px',
+    'pointerEvents':'none',
+    'fontSize':'1.2rem'
    },
    'label':{
     color:'$black50',

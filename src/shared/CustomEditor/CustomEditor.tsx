@@ -5,36 +5,42 @@ import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 import SelectWithLabel from "../SelectWithLabel/SelectWithLabel";
-
-
-
+import {CreationOfFaceBookAndTicktok, CreationOfVimeoAndYoutube} from "../ElementCreationForms/ElementCreationForms";
 
 
 
 const CustomEditor = ()=>{ 
-    const [modalIsOpen,setModalIsOpen]= useState(true)
+    const [modalIsOpen,setModalIsOpen]= useState(false)
     const editorRef = useRef(null);
-    const [value,setValue]=useState<string>()
-    return (
+    const  [value,setValue]=useState<string>()
+    const [selectedVariant,setSelectedVariant]= useState<'youtube'|'pics'|'social'>()
+    return (  
         <Box>
             <CustomModal
             modalIsOpen={modalIsOpen}
             setModalIsOpen={setModalIsOpen}
+            heading={'Embed'}
 
             element={<Box>
-              <br /><br />
-              <SelectWithLabel
-              name='select_socials'
-              options={[
-                {'label':'YouTube','value':'youtube'},
-                {'label':'FaceBook','value':'facebook'},
-              ]}
-              label="VIDEO PROVIDER"
-              />
-              <br />
-              <InputWithLabel 
-              label="URL" 
-               />
+                {
+                  selectedVariant==='youtube'?
+                  <CreationOfVimeoAndYoutube 
+                  onSave={new_value=>{
+                      setValue(value+new_value)
+                  }}
+                  setModal={setModalIsOpen}
+                  />:''
+                }
+                {
+                  selectedVariant ==='social'?
+                  <CreationOfFaceBookAndTicktok
+                  onSave={new_value=>{
+                      setValue(value+new_value)
+
+                  }}
+                  setModal={setModalIsOpen}
+                  />:''
+                }
 
             </Box>}
             />
@@ -72,6 +78,11 @@ const CustomEditor = ()=>{
           <ExtraEditorOption 
           onSelect={value=>{
             console.log('display '+value)
+            if(value==='youtube'||value=='social'){
+              setSelectedVariant(value)
+              setModalIsOpen(true)
+            }
+            
           }}
           />
           </Box>

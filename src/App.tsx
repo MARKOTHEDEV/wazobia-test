@@ -7,7 +7,7 @@ function App() {
 globalStyles()//for stiches.dev config
 
   return (
-    <Box css={{'backgroundColor':'$gray50','width':'100vw','height':'100vh'}}>
+    <Box css={{'backgroundColor':'$gray50','width':'100vw','minHeight':'100vh'}}>
       <br /><br /><br />
 
       <CustomEditor/>
