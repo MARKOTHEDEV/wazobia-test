@@ -3,6 +3,8 @@ import { useState ,useRef} from 'react'
 import { Editor ,} from '@tinymce/tinymce-react';
 import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
+import InputWithLabel from "../InputWithLabel/InputWithLabel";
+import SelectWithLabel from "../SelectWithLabel/SelectWithLabel";
 
 
 
@@ -19,7 +21,22 @@ const CustomEditor = ()=>{
             modalIsOpen={modalIsOpen}
             setModalIsOpen={setModalIsOpen}
 
-            element={<h1>hello world</h1>}
+            element={<Box>
+              <br /><br />
+              <SelectWithLabel
+              name='select_socials'
+              options={[
+                {'label':'YouTube','value':'youtube'},
+                {'label':'FaceBook','value':'facebook'},
+              ]}
+              label="VIDEO PROVIDER"
+              />
+              <br />
+              <InputWithLabel 
+              label="URL" 
+               />
+
+            </Box>}
             />
  <Box css={{'maxWidth':'1000px','border':'1px solid $green100','margin':'0 auto'}}>
         <Box css={{'padding':'1.5rem 0','border':'1px solid $green100'}}></Box>

@@ -9,6 +9,7 @@ import {
   import { Modal } from 'react-responsive-modal';
 import { Box } from '../generalboxes';
   import {GrFormClose} from 'react-icons/gr'
+import Button from '../Button/Button';
   
   const customStyles = {
       content: {
@@ -83,6 +84,10 @@ import { Box } from '../generalboxes';
             {
             element
             }
+            <Box css={{'display':'flex','gap':'0 10px','padding':'.6rem 0'}}>
+                <Button>Embed</Button>
+                <Button color='white'>Cancel</Button>
+            </Box>
             </Box>
         </Modal>:''
           }
