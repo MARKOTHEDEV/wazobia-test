@@ -5,6 +5,7 @@ import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
 
 import {CreationOfFaceBookAndTicktok, CreationOfVimeoAndYoutube, FileUpload} from "../ElementCreationForms/ElementCreationForms";
+import Button from "../Button/Button";
 
 
 
@@ -51,15 +52,14 @@ const CustomEditor = ()=>{
 
             </Box>}
             />
- <Box css={{'maxWidth':'1000px','border':'1px solid $green100','margin':'0 auto'}}>
-        <Box css={{'padding':'1.5rem 0','border':'1px solid $green100'}}></Box>
-          <Box css={{'padding':'1rem .8rem','color':'$black150'}}>
+ <Box css={{'maxWidth':'1000px','margin':'0 auto','border':'1px solid $green100','borderRadius':'5px','overflow':'hidden'}}>
+        <Box css={{'padding':'1.5rem 0','border':'1px solid $green100',}}></Box>
+          <Box css={{'padding':'1rem .8rem','color':'$black150','minHeight':'70vh'}}>
           <Editor
         
         value={value}
         ref={editorRef}
         onEditorChange={(newValue,)=>{
-          console.log(newValue)
           setValue(newValue)
         }}
           apiKey={
@@ -95,7 +95,14 @@ const CustomEditor = ()=>{
           }}
           />
           </Box>
+          <Box css={{'backgroundColor':'White','padding':'.5rem 1rem','textAlign':'right'}}>
+              <p>{value?.length??0}/1000 words</p>
+          </Box>
       </Box>
+      <Box css={{'maxWidth':'1000px','margin':'0 auto'}}>
+          <Button css={{'margin':'1rem 0','marginLeft':'auto'}}>Post</Button>
+      </Box>
+
         </Box>
     )
 }
