@@ -1,41 +1,13 @@
 
 
-import {
-    MdClose
-  } from 'react-icons/md';
-  import { AiOutlineWarning } from 'react-icons/ai';
+
   import ModalCss from './modal.module.css'
   import 'react-responsive-modal/styles.css';
   import { Modal } from 'react-responsive-modal';
 import { Box } from '../generalboxes';
   import {GrFormClose} from 'react-icons/gr'
-import Button from '../Button/Button';
   
-  const customStyles = {
-      content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor:'white',
-        background:'transparent',
-        border:'transparent',
-        // border:'1px solid red',
-        borderRadius:'1px',
-        'outline':'none',
-        padding:'unset ',
-        // 'maxHeight':'600px'
-        // PointerEvent:''
-        // "margin":"0 auto",
-      },
-      
-      overlay:{
-        backgroundColor:'#000000b5',
-        'zIndex':500
-      }
-    };
+
   
   const closeIcon  =(
    <GrFormClose style={{'fontSize':'1.5rem','transform':'translateY(-2px)'}} />

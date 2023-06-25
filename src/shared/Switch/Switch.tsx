@@ -9,7 +9,7 @@ type Prop = {
     defaultChecked?:boolean;
     value:boolean
 }
-const Switch = ({onChange,defaultChecked=false,label,value}:Prop):React.ReactElement=>{
+const Switch = ({onChange,label,value}:Prop):React.ReactElement=>{
     return (
         <Box>
                 <Flex css={{ alignItems: 'center',}}>

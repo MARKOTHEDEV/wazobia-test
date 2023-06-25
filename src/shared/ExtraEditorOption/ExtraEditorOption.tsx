@@ -15,7 +15,7 @@ type EachOptionProp = {
     onClick:(value:string)=>void
 }
 const EachOption =({Icon,heading,text,value,onClick}:EachOptionProp)=>(<OptionsStyles
-onClick={(e)=>{
+onClick={()=>{
     onClick(value)
 }}
 >
@@ -38,7 +38,7 @@ const ExtraEditorOption = ({onSelect}:ExtraEditorOptionProp)=>{
     }
     return (
            <Box>
-             <ExtraEditorOptionContainer onClick={e=>{
+             <ExtraEditorOptionContainer onClick={()=>{
                 setShowOptions(!showOptions)
              }}>
                 <IoMdAdd />

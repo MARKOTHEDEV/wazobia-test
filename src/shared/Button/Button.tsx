@@ -16,7 +16,7 @@ type Props = React.PropsWithChildren<{
 
 type ButtonType = Props & StyledButtonVariants
 
-const Button = ({children,color,leftIcon,RightIcon,onClick=()=>null,type='submit',css={},...prop}:ButtonType):React.ReactElement=>{
+const Button = ({children,color,leftIcon,RightIcon,onClick=()=>null,type='submit',css={}}:ButtonType):React.ReactElement=>{
 
     return (
         <StyledButton 

@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react"
 import { InputWithLabelContainer } from './InputWithLabel.style'
 import type * as Stitches from '@stitches/react';
 

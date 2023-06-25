@@ -3,8 +3,7 @@ import { useState ,useRef} from 'react'
 import { Editor ,} from '@tinymce/tinymce-react';
 import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
-import InputWithLabel from "../InputWithLabel/InputWithLabel";
-import SelectWithLabel from "../SelectWithLabel/SelectWithLabel";
+
 import {CreationOfFaceBookAndTicktok, CreationOfVimeoAndYoutube, FileUpload} from "../ElementCreationForms/ElementCreationForms";
 
 
@@ -59,7 +58,7 @@ const CustomEditor = ()=>{
         
         value={value}
         ref={editorRef}
-        onEditorChange={(newValue,editor)=>{
+        onEditorChange={(newValue,)=>{
           console.log(newValue)
           setValue(newValue)
         }}

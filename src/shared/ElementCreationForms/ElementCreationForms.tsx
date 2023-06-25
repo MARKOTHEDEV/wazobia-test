@@ -141,7 +141,7 @@ export const CreationOfFaceBookAndTicktok = ({setModal,onSave}:Prop)=>{
         
         <Switch
                 label=""
-                onChange={(value)=>{
+                onChange={()=>{
                     //
                     setIsChecked(!isChecked)
                 }}            
