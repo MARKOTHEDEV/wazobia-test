@@ -2,18 +2,25 @@ import { Box } from "../generalboxes"
 import { useState ,useRef} from 'react'
 import { Editor ,} from '@tinymce/tinymce-react';
 import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
+import CustomModal from "../Modal/Modal";
 
 
 
 
 
 
-const CustomEditor = ()=>{
-
+const CustomEditor = ()=>{ 
+    const [modalIsOpen,setModalIsOpen]= useState(true)
     const editorRef = useRef(null);
     const [value,setValue]=useState<string>()
     return (
         <Box>
+            <CustomModal
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+
+            element={<h1>hello world</h1>}
+            />
  <Box css={{'maxWidth':'1000px','border':'1px solid $green100','margin':'0 auto'}}>
         <Box css={{'padding':'1.5rem 0','border':'1px solid $green100'}}></Box>
           <Box css={{'padding':'1rem .8rem','color':'$black150'}}>

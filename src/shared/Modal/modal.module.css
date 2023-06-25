@@ -1,0 +1,18 @@
+
+
+.customModal{
+    padding:unset !important;
+    border-radius: 4px;
+    align-items: center;
+    /* margin: unset; */
+    /* border: 1px solid red; */
+    /* width: 1500px; */
+}
+
+.customOverlay{
+    /* background-color: red !important; */
+    display: flex  !important;
+    flex-direction: column  !important;
+    align-items: center  !important;
+    justify-content: center  !important;
+}
