@@ -1,5 +1,5 @@
 import { Box } from "../generalboxes"
-import { useState ,useRef, useEffect} from 'react'
+import { useState ,useRef,} from 'react'
 import { Editor ,} from '@tinymce/tinymce-react';
 import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
