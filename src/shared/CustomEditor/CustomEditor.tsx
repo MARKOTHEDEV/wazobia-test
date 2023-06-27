@@ -1,5 +1,5 @@
 import { Box } from "../generalboxes"
-import { useState ,useRef} from 'react'
+import { useState ,useRef, useEffect} from 'react'
 import { Editor ,} from '@tinymce/tinymce-react';
 import ExtraEditorOption from "../ExtraEditorOption/ExtraEditorOption";
 import CustomModal from "../Modal/Modal";
@@ -16,8 +16,14 @@ const CustomEditor = ()=>{
     const [selectedVariant,setSelectedVariant]= useState<'youtube'|'pics'|'social'>()
 
     const handleOnSave =(new_value:string)=>{
-      setValue(value+new_value)
+      if(value){
+
+        setValue(value+new_value)
+      }else{
+        setValue(new_value)
+      }
     }
+
     return (  
         <Box>
             <CustomModal
@@ -54,12 +60,23 @@ const CustomEditor = ()=>{
             />
  <Box css={{'maxWidth':'1000px','margin':'0 auto','border':'1px solid $green100','borderRadius':'5px','overflow':'hidden'}}>
         <Box css={{'padding':'1.5rem 0','border':'1px solid $green100',}}></Box>
-          <Box css={{'padding':'1rem .8rem','color':'$black150','minHeight':'70vh'}}>
+          <Box css={{
+            //  'padding':'1rem .8rem','color':'$black150','minHeight':'70vh'
+            '.tox-statusbar':{
+              'display':'none !important',
+            },
+            '.tox-tinymce':{
+              // 'border':'none',
+              'borderRadius':'0',
+              'minHeight':'30px '
+            }
+            }}>
           <Editor
         
         value={value}
         ref={editorRef}
         onEditorChange={(newValue,)=>{
+          console.log({newValue})
           setValue(newValue)
         }}
           apiKey={
@@ -70,7 +87,7 @@ const CustomEditor = ()=>{
           init={{
             height: 500,
             menubar: false,
-            inline:true,
+            // inline:true,
             plugins: [
               'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
               'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
@@ -80,11 +97,18 @@ const CustomEditor = ()=>{
               'bold italic forecolor | alignleft aligncenter ' +
               'alignright alignjustify | bullist numlist outdent indent | ' +
               'removeformat | help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+            content_style: `
+            body { font-family:Helvetica,Arial,sans-serif; font-size:14px}
+            
+            `
             }}
           />
-          <br />
-          <ExtraEditorOption 
+
+          </Box>
+          
+      </Box>
+      <Box css={{'maxWidth':'1000px','margin':'0 auto'}}>
+      <ExtraEditorOption 
           onSelect={value=>{
             console.log('display '+value)
             if(value==='youtube'||value=='social' || value =='pics'){
@@ -94,12 +118,6 @@ const CustomEditor = ()=>{
             
           }}
           />
-          </Box>
-          <Box css={{'backgroundColor':'White','padding':'.5rem 1rem','textAlign':'right'}}>
-              <p>{value?.length??0}/1000 words</p>
-          </Box>
-      </Box>
-      <Box css={{'maxWidth':'1000px','margin':'0 auto'}}>
           <Button css={{'margin':'1rem 0','marginLeft':'auto'}}>Post</Button>
       </Box>
 

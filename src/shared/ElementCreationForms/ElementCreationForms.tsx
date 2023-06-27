@@ -213,7 +213,7 @@ export const FileUpload = ({setModal,onSave}:Prop)=>{
                 <Button
                 onClick={e=>{
                   e.preventDefault()
-                  onSave(`<img src="${image}" alt="hive-deck-img" />`)
+                  onSave(`<img src="${image}" alt="hive-deck-img" style="width:250px;height:250px;"}} />`)
                   setModal(false)
 
                 }}
